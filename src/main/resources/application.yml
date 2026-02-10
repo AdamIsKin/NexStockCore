@@ -6,6 +6,21 @@ server:
 spring:
   application:
     name: nexstock-core
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:8.129.91.93}:${MYSQL_PORT:3306}/nexstock?allowPublicKeyRetrieval=true&useUnicode=true&characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: ${MYSQL_USER:nexstock}
+    password: ${MYSQL_PASSWORD:NexStockCore@1936}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  type-aliases-package: com.stockwise
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      table-prefix:
+      id-type: assign_uuid
 
 # JWT 配置：与《StockWise 前后端开发范式》认证方案一致，Cookie 名 sw_token
 jwt:
