@@ -1,0 +1,14 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /stockwise
+
+spring:
+  application:
+    name: nexstock-core
+
+# JWT 配置：与《StockWise 前后端开发范式》认证方案一致，Cookie 名 sw_token
+jwt:
+  secret: nexstock-secret-key-at-least-256-bits-for-hs256-please-change-in-production
+  cookie-name: sw_token
+  expiration-ms: 86400000  # 24 小时
